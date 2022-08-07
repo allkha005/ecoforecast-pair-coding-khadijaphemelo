@@ -1,5 +1,5 @@
 ---
-  title: "Master script for postfire analysis"
+title: "Master script for postfire analysis"
 output: html_document
 ---
   
@@ -32,8 +32,7 @@ plot.NDVI(dat)
   
   Q1: This plot suggests that Fynbos greenness (NDVI) as observed from satellite saturates with time since fire. Why do you think it saturates rather than increasing linearly with time?
   
-  >*Answer 1:*
-  
+  >*Answer 1:* As time progresses, Fynbos greenness eventually saturates due to the decline in rainfall, thus causing the post fire recovery rate to decrease due to the deterioration of the fynbos shrubs causing the NDVI to reduce and saturate.
   <br>
   
   ### 2. Fit models using Non-linear Least Squares (NLS)
@@ -99,7 +98,7 @@ summary(fit_negexpS)
 
 Q2: How do the estimates for the common parameters compare?
   
-  >*Answer 2:*
+  >*Answer 2:* The parameter estimates for alpha and lambda are higher in the simple model than the full model whilsts the gamma estimate is lower simple model than than the full model.
   
   <br>
   
@@ -117,11 +116,11 @@ anova(fit_negexp, fit_negexpS)
   
   Q3: Which model is better?
   
-  >*Answer 3:*
+  >*Answer 3:* Model 2 as it has a p value < 0.001 with the addition of the 2 parameters thus showing model 2 is a better modle.
   
   Q4: How many degrees of freedom are there in this ANOVA and why (i.e. what are they)?
   
-  >*Answer 4:*
+  >*Answer 4:* 2 degrees of freedom because the 2 parameters that differ model 1 and 2 are A and pi.
   
   <br>
   
@@ -214,7 +213,7 @@ AIC_simple - AIC_full
 
 Q5: Is there a preferred model and if so, which one?
 
->*Answer 5:*
+>*Answer 5:* Yes, the full model as it has a lower AIC value.
 
 <br>
 
@@ -231,7 +230,7 @@ AIC(fit_negexp, fit_negexpS)
 You'll notice that these are completely different to the AICs for the MLE models...
 
 Q6: Why is it not okay to compare the AIC of these NLS models with the AIC of the MLE models? Hint: type `?AIC` into the R console and do some reading.
-
->*Answer 6:*
+?AIC
+>*Answer 6:* AIC requires models fitted by maximum likelihood in order to compare AIC values between models and determine which model is the better fit. However, NLS models are not fitted by maximum likelihood but by non linear least squares estimation. Therefore, AIC values of NLS models cannot be compared.
   
   <br>
